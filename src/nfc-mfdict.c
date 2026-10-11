@@ -392,12 +392,12 @@ int main(int argc, char *const argv[])
   // Iterate over every block, where we haven't found a key yet
   block = current_sector * 4 + 3;
   while (key < n || defKey_bytes_todo) {
-    if (defKey_bytes_todo > 0) {
-      memcpy(mp.mpa.abtKey, defKeys + defKeys_len - defKey_bytes_todo, sizeof(mp.mpa.abtKey));
-      defKey_bytes_todo -= sizeof(mp.mpa.abtKey);
-    } else {
+    if (key < n) {
       memcpy(mp.mpa.abtKey, defaultKeys[key], sizeof(mp.mpa.abtKey));
       key++;
+    } else if (defKey_bytes_todo > 0) {
+      memcpy(mp.mpa.abtKey, defKeys + defKeys_len - defKey_bytes_todo, sizeof(mp.mpa.abtKey));
+      defKey_bytes_todo -= sizeof(mp.mpa.abtKey);
     }
 
     if (keyType == 'A') {
