@@ -30,7 +30,7 @@
 #define DEFAULT_DIST_NR         15
 
 // Default number of probes for a key recovery for one sector
-#define DEFAULT_PROBES_NR       150
+#define DEFAULT_PROBES_NR       20
 
 // Number of sets with 32b keys
 #define DEFAULT_SETS_NR         5
